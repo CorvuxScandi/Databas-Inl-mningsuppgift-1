@@ -1,0 +1,17 @@
+﻿<Window x:Class="ADOÖvningar.MakeNewLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADOÖvningar"
+        mc:Ignorable="d"
+        Title="Ny användare" SizeToContent="WidthAndHeight" FontSize="12" Padding="3" Icon="StandingRaven.jpg" x:Name="makeNewLogin">
+    <StackPanel Margin="5">
+        <TextBlock x:Name="txtNewUser" Text="Var god skriv ner användarnamn och lösenord." />
+        <TextBlock Text="Användarnamn" Margin="0 4 0 2"/>
+        <TextBox x:Name="newUsername" Margin="0"/>
+        <TextBlock Text="Lösenord" Margin="0 4 0 2"/>
+        <PasswordBox x:Name="newPassword" Margin="0 0 0 4" PasswordChar="*" />
+        <Button x:Name="makeNewUser" Content="Skapa användare" HorizontalAlignment="Left" Padding="2 0 2 2" Margin="0 2 0 4" Click="makeNewUser_Click"/>
+    </StackPanel>
+</Window>

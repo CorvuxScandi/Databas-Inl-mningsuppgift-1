@@ -57,18 +57,22 @@
                 </Grid.ColumnDefinitions>
             </Grid>
         </ListBox>
-        <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Top">
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Top" Margin="0 10 0 0">
             <TextBlock Text="Användarnamn" Margin="3 0 0 0"/>
             <TextBox x:Name="userName" Margin="3 3 3 3"/>
             <TextBlock Text="Lösenord" Margin="3 0 0 0"/>
             <TextBox x:Name="password" Margin="3 3 3 0"/>
-            <Button x:Name="logIn" Content="Logga in" HorizontalAlignment="Left" Margin="3" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Padding="2,0,2,2"/>
+
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Button x:Name="logIn" Content="Logga in" Padding="2,0,2,2"/>
+                <Button x:Name="register" Content="Regristrera" Margin="10 0 0 0"  Padding="2,0,2,2" FontSize="11"/>
+            </StackPanel>
             <Separator Margin="3,8" />
-            <Button x:Name="makeAd" Content="Skapa annons" Margin="3,3,3,5"/>
-            <Button x:Name="yourAd" Content="Dina Annonser" Margin="3,3,3,5"/>
-            <Button x:Name="editAd" Content="Ändra dina annonser" Margin="3,3,3,5"/>
+            <Button x:Name="makeAd" Content="Skapa annons" Margin="3,3,3,5" HorizontalAlignment="Left"/>
+            <Button x:Name="yourAd" Content="Dina Annonser" Margin="3,3,3,5" HorizontalAlignment="Left"/>
+            <Button x:Name="editAd" Content="Redigera dina annonser" Margin="3,3,3,5" HorizontalAlignment="Left"/>
 
         </StackPanel>
-      
+
     </Grid>
 </Window>
