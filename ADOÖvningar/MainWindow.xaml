@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ADOÖvningar"
         mc:Ignorable="d"
-        Title="SqlForm" Height="500" Width="800"
+        Title="SqlForm" MinHeight="500" MinWidth="800" Height="500" Width="800"
         FontSize="12" Icon="StandingRaven.jpg" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -39,7 +39,7 @@
             <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="CorvuxScandi Logo2(bright).png" 
                    Margin="0 0 70 0"/>
 
-            <TextBox x:Name="searchBar" Padding="4" Grid.Column="1" Text="Sök annons" FontStretch="Expanded" FontSize="18" GotFocus="searchBar_GotFocus" />
+            <TextBox x:Name="searchBar" Padding="2 2 0 0" Grid.Column="1" Text="Sök annons" FontSize="18" GotFocus="searchBar_GotFocus"/>
             <Button x:Name="search" Content="Sök" FontWeight="Bold"
                     Grid.Row="1" Grid.Column="1" Margin="5" MinWidth="80" MaxWidth="80" FontSize="15" HorizontalAlignment="Left" Click="search_Click"/>
             <ComboBox x:Name="categories" Grid.Column="1" Grid.Row="1" 
@@ -58,10 +58,11 @@
             </Grid>
         </ListBox>
         <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Top" Margin="0 10 0 0">
+            <TextBlock x:Name="errormessage"/>
             <TextBlock Text="Användarnamn" Margin="3 0 0 0"/>
             <TextBox x:Name="userName" Margin="3 3 3 3"/>
             <TextBlock Text="Lösenord" Margin="3 0 0 0"/>
-            <TextBox x:Name="password" Margin="3 3 3 0"/>
+            <PasswordBox x:Name="password" Margin="3 3 3 0" PasswordChar="*"/>
 
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Button x:Name="logIn" Content="Logga in" Padding="2,0,2,2"/>
