@@ -1,0 +1,74 @@
+﻿<Window x:Class="ADOÖvningar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADOÖvningar"
+        mc:Ignorable="d"
+        Title="SqlForm" Height="500" Width="800"
+        FontSize="12" Icon="StandingRaven.jpg" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="CorvuxScandi Logo2(bright).png" 
+                   Margin="0 0 70 0"/>
+
+            <TextBox x:Name="searchBar" Padding="4" Grid.Column="1" Text="Sök annons" FontStretch="Expanded" FontSize="18" GotFocus="searchBar_GotFocus" />
+            <Button x:Name="search" Content="Sök" FontWeight="Bold"
+                    Grid.Row="1" Grid.Column="1" Margin="5" MinWidth="80" MaxWidth="80" FontSize="15" HorizontalAlignment="Left" Click="search_Click"/>
+            <ComboBox x:Name="categories" Grid.Column="1" Grid.Row="1" 
+                      HorizontalAlignment="Right" MinWidth="200" Margin="5" IsEditable="True" IsReadOnly="True" Text="Kategorier" GotFocus="categories_GotFocus"/>
+
+        </Grid>
+        <ListBox x:Name="adDisplay" Grid.Row="2" Grid.RowSpan="5"
+                 Grid.Column="2" Grid.ColumnSpan="2" BorderBrush="#FF202229" Margin="10 5 20 0">
+            <Grid Margin="0.2" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </ListBox>
+        <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Top">
+            <TextBlock Text="Användarnamn" Margin="3 0 0 0"/>
+            <TextBox x:Name="userName" Margin="3 3 3 3"/>
+            <TextBlock Text="Lösenord" Margin="3 0 0 0"/>
+            <TextBox x:Name="password" Margin="3 3 3 0"/>
+            <Button x:Name="logIn" Content="Logga in" HorizontalAlignment="Left" Margin="3" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Padding="2,0,2,2"/>
+            <Separator Margin="3,8" />
+            <Button x:Name="makeAd" Content="Skapa annons" Margin="3,3,3,5"/>
+            <Button x:Name="yourAd" Content="Dina Annonser" Margin="3,3,3,5"/>
+            <Button x:Name="editAd" Content="Ändra dina annonser" Margin="3,3,3,5"/>
+
+        </StackPanel>
+      
+    </Grid>
+</Window>
