@@ -25,9 +25,13 @@
             <TextBox x:Name="newTitle" Margin="0 0 0 4"/>
             <StackPanel Orientation="Horizontal">
                 <Border Width="80" Height="80" HorizontalAlignment="Left" MaxWidth="80" MaxHeight="80" BorderBrush="#FF3A3939" Background="Gainsboro" BorderThickness="1">
-                <Image x:Name="newImage" AllowDrop="True" Width="80" Height="80" HorizontalAlignment="Left" MaxWidth="80" MaxHeight="80" />
+                    <Image x:Name="newImage" AllowDrop="True" Width="80" Height="80" HorizontalAlignment="Left" MaxWidth="80" MaxHeight="80" Source="DragAndDrop.png" />
                 </Border>
-                <ComboBox x:Name="categories" IsEditable="True" IsReadOnly="True" Text="Kategorier" Margin="10 0 0 0" VerticalAlignment="Top" />
+                <StackPanel Margin="10 0 0 0">
+                    <ComboBox x:Name="categories" IsEditable="True" IsReadOnly="True" Text="Kategorier" VerticalAlignment="Top" />
+                    <TextBlock Text="&lt;-- Släpp din bild här" VerticalAlignment="Bottom" Margin="0 20 0 0"/>
+                </StackPanel>
+                
             </StackPanel>
         </StackPanel>
 
