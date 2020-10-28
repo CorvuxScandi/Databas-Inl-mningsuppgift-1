@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ADOÖvningar"
-        mc:Ignorable="d" Name="defaultVeiw"
+        mc:Ignorable="d" Name="loggedIn"
         Title="SqlForm" MinHeight="500" MinWidth="800" Height="500" Width="800"
         FontSize="12" Icon="StandingRaven.jpg" WindowStartupLocation="CenterScreen">
     <Grid>
@@ -58,19 +58,12 @@
             </Grid>
         </ListBox>
         <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Top" Margin="0 10 0 0">
-            <TextBlock x:Name="errormessage"/>
-            <TextBlock Text="Användarnamn" Margin="3 0 0 0"/>
-            <TextBox x:Name="userName" Margin="3 3 3 3"/>
-            <TextBlock Text="Lösenord" Margin="3 0 0 0"/>
-            <PasswordBox x:Name="password" Margin="3 3 3 0" PasswordChar="*"/>
+            <Button x:Name="makeAd" Content="Skapa annons" Margin="3,5,3,5" HorizontalAlignment="Left" Click="makeAd_Click"/>
+            <Button x:Name="yourAds" Content="Dina annonser" Margin="3,0,3,5" HorizontalAlignment="Left" Click="yourAds_Click"/>
 
-            <StackPanel Orientation="Horizontal" Margin="5">
-                <Button x:Name="logIn" Content="Logga in" Padding="2,0,2,2"/>
-                <Button x:Name="register" Content="Regristrera" Margin="10 0 0 0"  Padding="2,0,2,2" FontSize="11"/>
-            </StackPanel>
-            <Separator Margin="3,8" />
+            <Button x:Name="logout" Content="Logga ut" Padding="2,0,2,2" HorizontalAlignment="Left" Margin="3,0,3,5"/>
+                <Separator Margin="3,8" />
             
-
         </StackPanel>
 
     </Grid>

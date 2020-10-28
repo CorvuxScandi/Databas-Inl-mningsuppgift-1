@@ -39,5 +39,15 @@ namespace ADOÖvningar
         {
             categories.Text = "";
         }
+
+        private void yourAds_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void makeAd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
