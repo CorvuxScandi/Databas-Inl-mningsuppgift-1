@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Ny användare" SizeToContent="WidthAndHeight" FontSize="12" Padding="3" Icon="StandingRaven.jpg" x:Name="makeNewLogin">
     <StackPanel Margin="5">
-        <TextBlock x:Name="txtNewUser" Text="Var god skriv ner användarnamn och lösenord." />
+        <TextBlock x:Name="txtNewUser" Text="Skriv ner ett användarnamn och lösenord." />
         <TextBlock Text="Användarnamn" Margin="0 4 0 2"/>
         <TextBox x:Name="newUsername" Margin="0"/>
         <TextBlock Text="Lösenord" Margin="0 4 0 2"/>

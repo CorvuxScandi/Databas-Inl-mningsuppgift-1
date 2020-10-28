@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ADOÖvningar
 {
     /// <summary>
-    /// Interaction logic for LoggedIn.xaml
+    /// Interaction logic for MakeNewAd.xaml
     /// </summary>
-    public partial class LoggedIn : Page
+    public partial class MakeNewAd : Window
     {
-        public LoggedIn()
+        public MakeNewAd()
         {
             InitializeComponent();
         }

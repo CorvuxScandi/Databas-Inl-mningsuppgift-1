@@ -40,14 +40,26 @@ namespace ADOÖvningar
             categories.Text = "";
         }
 
-        private void yourAds_Click(object sender, RoutedEventArgs e)
+        private void register_Click(object sender, RoutedEventArgs e)
         {
-
+            MakeNewLogin newLogin = new MakeNewLogin();
         }
 
-        private void makeAd_Click(object sender, RoutedEventArgs e)
+        private void logIn_Click(object sender, RoutedEventArgs e)
         {
+            loggedIn.Visibility = Visibility.Visible;
+            loggedOut.Visibility = Visibility.Hidden;
+        }
 
+        private void logOut_Click(object sender, RoutedEventArgs e)
+        {
+            loggedOut.Visibility = Visibility.Visible;
+            loggedIn.Visibility = Visibility.Hidden;
+        }
+
+        private void makeNewAd_Click(object sender, RoutedEventArgs e)
+        {
+            MakeNewAd newAd = new MakeNewAd();
         }
     }
 }

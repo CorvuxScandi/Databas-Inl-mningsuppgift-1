@@ -57,21 +57,27 @@
                 </Grid.ColumnDefinitions>
             </Grid>
         </ListBox>
-        <StackPanel Grid.Row="2" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Top" Margin="0 10 0 0">
-            <TextBlock x:Name="errormessage"/>
+        
+        <StackPanel x:Name="loggedOut" Grid.Row="2" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Top" Margin="0 10 0 0" Visibility="Visible">
+            <TextBlock x:Name="errormessage" Visibility="Collapsed"/>
             <TextBlock Text="Användarnamn" Margin="3 0 0 0"/>
             <TextBox x:Name="userName" Margin="3 3 3 3"/>
             <TextBlock Text="Lösenord" Margin="3 0 0 0"/>
             <PasswordBox x:Name="password" Margin="3 3 3 0" PasswordChar="*"/>
 
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Button x:Name="logIn" Content="Logga in" Padding="2,0,2,2"/>
-                <Button x:Name="register" Content="Regristrera" Margin="10 0 0 0"  Padding="2,0,2,2" FontSize="11"/>
+                <Button x:Name="logIn" Content="Logga in" Padding="2,0,2,2" Click="logIn_Click"/>
+                <Button x:Name="register" Content="Regristrera" Margin="10 0 0 0"  Padding="2,0,2,2" FontSize="11" Click="register_Click"/>
             </StackPanel>
+            
             <Separator Margin="3,8" />
             
-
         </StackPanel>
-
+        
+        <StackPanel x:Name="loggedIn" Grid.Row="2" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Top" Margin="0 10 0 0" Visibility="Hidden">
+            <Button x:Name="logOut" Content="Logga ut" Padding="2 0 2 2" HorizontalAlignment="Left" Margin="3 10 0 0" Click="logOut_Click"/>
+            <Button x:Name="makeNewAd" Content="Gör ny annons" Padding="2 0 2 2" HorizontalAlignment="Left" Margin="3 10 0 0" Click="makeNewAd_Click"/>
+            <Separator Margin="3,8" />
+        </StackPanel>
     </Grid>
 </Window>
