@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ADOÖvningar"
         mc:Ignorable="d"
-        Title="Ny användare" SizeToContent="WidthAndHeight" FontSize="12" Padding="3" Icon="StandingRaven.jpg" x:Name="makeNewLogin">
+        Title="Ny användare" SizeToContent="WidthAndHeight" FontSize="12" Padding="3" Icon="StandingRaven.jpg" x:Name="makeNewLogin" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel Margin="5">
         <TextBlock x:Name="txtNewUser" Text="Skriv ner ett användarnamn och lösenord." />
         <TextBlock Text="Användarnamn" Margin="0 4 0 2"/>

@@ -43,6 +43,7 @@ namespace ADOÖvningar
         private void register_Click(object sender, RoutedEventArgs e)
         {
             MakeNewLogin newLogin = new MakeNewLogin();
+            newLogin.Show();
         }
 
         private void logIn_Click(object sender, RoutedEventArgs e)
@@ -60,6 +61,7 @@ namespace ADOÖvningar
         private void makeNewAd_Click(object sender, RoutedEventArgs e)
         {
             MakeNewAd newAd = new MakeNewAd();
+            newAd.Show();
         }
     }
 }
