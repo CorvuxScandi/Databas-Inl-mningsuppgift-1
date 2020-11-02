@@ -48,8 +48,29 @@ namespace ADOÖvningar
 
         private void logIn_Click(object sender, RoutedEventArgs e)
         {
-            loggedIn.Visibility = Visibility.Visible;
-            loggedOut.Visibility = Visibility.Hidden;
+            string devUserName = "aaa";
+            string devPassword = "111";
+
+            string username = userName.Text;
+            string password = passWord.Password.ToString();
+
+            if(username == devUserName && password == devPassword)
+            {
+                loggedIn.Visibility = Visibility.Visible;
+                loggedOut.Visibility = Visibility.Hidden;
+                errormessage.Visibility = Visibility.Collapsed;
+                userName.Text = "";
+                passWord.Password = "";
+            }
+            else
+            {
+                errormessage.Text = "Fel lösenord eller användarnamn. Försök igen.";
+                errormessage.Visibility = Visibility.Visible;
+                passWord.Clear();
+                passWord.Focus();
+            }
+
+            
         }
 
         private void logOut_Click(object sender, RoutedEventArgs e)

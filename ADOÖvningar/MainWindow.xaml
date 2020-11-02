@@ -59,11 +59,11 @@
         </ListBox>
         
         <StackPanel x:Name="loggedOut" Grid.Row="2" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Top" Margin="0 10 0 0" Visibility="Visible">
-            <TextBlock x:Name="errormessage" Visibility="Collapsed"/>
+            <TextBlock x:Name="errormessage" Visibility="Collapsed" Foreground="#FFAB1717" />
             <TextBlock Text="Användarnamn" Margin="3 0 0 0"/>
             <TextBox x:Name="userName" Margin="3 3 3 3"/>
             <TextBlock Text="Lösenord" Margin="3 0 0 0"/>
-            <PasswordBox x:Name="password" Margin="3 3 3 0" PasswordChar="*"/>
+            <PasswordBox x:Name="passWord" Margin="3 3 3 0" PasswordChar="*"/>
 
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Button x:Name="logIn" Content="Logga in" Padding="2,0,2,2" Click="logIn_Click"/>
