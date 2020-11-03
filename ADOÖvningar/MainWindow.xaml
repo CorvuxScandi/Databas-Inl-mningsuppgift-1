@@ -59,7 +59,7 @@
         </ListBox>
         
         <StackPanel x:Name="loggedOut" Grid.Row="2" Grid.Column="1" Grid.RowSpan="4" VerticalAlignment="Top" Margin="0 10 0 0" Visibility="Visible">
-            <TextBlock x:Name="errormessage" Visibility="Collapsed" Foreground="#FFAB1717" />
+            <TextBlock x:Name="errormessage" Visibility="Collapsed" Foreground="#FFAB1717" TextWrapping="WrapWithOverflow" />
             <TextBlock Text="Användarnamn" Margin="3 0 0 0"/>
             <TextBox x:Name="userName" Margin="3 3 3 3"/>
             <TextBlock Text="Lösenord" Margin="3 0 0 0"/>
