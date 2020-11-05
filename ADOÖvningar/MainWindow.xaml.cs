@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ADOÖvningar.Classes;
+using System.Windows;
 
 namespace ADOÖvningar
 {
@@ -37,13 +38,15 @@ namespace ADOÖvningar
 
         private void logIn_Click(object sender, RoutedEventArgs e)
         {
+            UserRepo user = new UserRepo();
             string devUserName = "aaa";
             string devPassword = "111";
 
             string username = userName.Text;
             string password = passWord.Password.ToString();
 
-            if(username == devUserName && password == devPassword)
+            if(username == devUserName && password == devPassword
+                || user.FindUser(username, password) != 0)
             {
                 loggedIn.Visibility = Visibility.Visible;
                 loggedOut.Visibility = Visibility.Hidden;
