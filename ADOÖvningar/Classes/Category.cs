@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace ADOÖvningar.Classes
 {
-    public class AdvertType
+    public class Category
     {
         public string TypeName { get; set; }
 
         public int AdvertTypeID { get; set; }
 
-        public AdvertType(string typeName, int advertTypeID)
+        public Category()
+        {
+
+        }
+        public Category(string typeName, int advertTypeID)
         {
             TypeName = typeName;
 
@@ -20,6 +24,6 @@ namespace ADOÖvningar.Classes
 
 
         }
-
+       
     }
 }

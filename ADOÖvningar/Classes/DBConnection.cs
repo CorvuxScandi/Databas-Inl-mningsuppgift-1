@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -18,35 +19,33 @@ namespace ADOÖvningar.Classes
             ConfigurationManager.ConnectionStrings["DB_Assignment"].ConnectionString;
 
 
-        public static int ExecuteScalarSP(string commandString, List<SqlParameter> parameters)
+        public static string FindSingleValue(string command, SqlParameter param)
         {
             try
             {
                 using (conn = new SqlConnection(connectionstring))
                 {
                     conn.Open();
-                    cmd = new SqlCommand(commandString, conn);
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                    foreach (SqlParameter param in parameters)
-                    {
-                        cmd.Parameters.Add(param);
-                    }
-
+                    cmd = new SqlCommand(command, conn);
+                    
+                    cmd.Parameters.Add(param);
+                    
                     object returnvalue = cmd.ExecuteScalar();
 
                     if (returnvalue != null)
                     {
-                        return (int)returnvalue;
+                        return returnvalue.ToString();
                     }
-                }    
+                    
+                }
             }
             catch (Exception)
             {
                 MessageBox.Show("Faulty connection to database. Try again");
+                return "";
             }
 
-            return 0;
+            return "";
         }
 
         public static void ExecuteNonQuery(string commandString, List<SqlParameter> parameters)
@@ -57,7 +56,7 @@ namespace ADOÖvningar.Classes
                 {
                     conn.Open();
                     cmd = new SqlCommand(commandString, conn);
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
                     foreach (SqlParameter param in parameters)
                     {
@@ -83,27 +82,15 @@ namespace ADOÖvningar.Classes
                     conn.Open();
                     cmd = new SqlCommand(commandString, conn);
 
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    foreach (var param in parameters)
                     {
+                        cmd.Parameters.Add(param);
+                    }
 
-                        table.Columns.Add("Title");
-                        table.Columns.Add("Description");
-                        table.Columns.Add("Type");
-                        table.Columns.Add("Image");
-                        table.Columns.Add("User");
-
-                        while (reader.Read())
-                        {
-                            DataRow row = table.NewRow();
-
-                            row["Title"] = reader["AdvertTitle"];
-                            row["Description"] = reader["Description"];
-                            row["Type"] = reader["AdvertType"];
-                            row["Image"] = reader["AdImage"];
-                            row["User"] = reader["User"];
-                            table.Rows.Add(row);
-
-                        }
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                        da.Fill(table);
                     }
                 }
             }
@@ -113,6 +100,26 @@ namespace ADOÖvningar.Classes
             }
 
             return table;
+        } // Delete later?
+
+        public static DataTable TableFromDataBase(string commandstring)
+        {
+            using (conn = new SqlConnection(connectionstring))
+            {
+                DataTable table = new DataTable();
+                conn.Open();
+                cmd = new SqlCommand(commandstring, conn);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(table);
+                }
+
+
+                return table;
+            }
+            
         }
 
     }

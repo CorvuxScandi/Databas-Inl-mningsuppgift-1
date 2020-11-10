@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\SortingStatement.cs" />
+    <Compile Include="Repositoreis\CategoryRepo.cs" />
+    <Compile Include="Classes\User.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -64,10 +67,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Classes\AdvertRepo.cs" />
-    <Compile Include="Classes\AdvertType.cs" />
+    <Compile Include="Classes\Advert.cs" />
+    <Compile Include="Repositoreis\AdvertRepo.cs" />
+    <Compile Include="Classes\Category.cs" />
     <Compile Include="Classes\DBConnection.cs" />
-    <Compile Include="Classes\UserRepo.cs" />
+    <Compile Include="Repositoreis\UserRepo.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
