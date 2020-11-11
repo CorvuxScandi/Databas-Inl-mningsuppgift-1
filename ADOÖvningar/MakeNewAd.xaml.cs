@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ADOÖvningar.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,11 @@ namespace ADOÖvningar
         public MakeNewAd()
         {
             InitializeComponent();
+        }
+
+        private void categoriesBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            categoriesBox.ItemsSource = CategoryRepo.GetAllCatagories().DefaultView;
         }
 
 

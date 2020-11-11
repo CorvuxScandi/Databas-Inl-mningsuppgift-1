@@ -76,6 +76,7 @@
             <StackPanel Orientation="Horizontal" Margin="5">
                 <Button x:Name="logIn" Content="Logga in" Padding="2,0,2,2" Click="logIn_Click"/>
                 <Button x:Name="register" Content="Regristrera" Margin="10 0 0 0"  Padding="2,0,2,2" FontSize="11" Click="register_Click"/>
+                <Button x:Name="btnSkip" Content="Skip" Click="btnSkip_Click" Margin="10 0 0 0"/>
             </StackPanel>
 
             <Separator Margin="3,8" />

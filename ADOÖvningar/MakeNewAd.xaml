@@ -35,8 +35,7 @@
                 </Border>
 
                 <StackPanel Margin="10 0 0 0">
-                    <ComboBox 
-                        x:Name="categories" IsEditable="True" IsReadOnly="True" Text="Kategorier" VerticalAlignment="Top" />
+                    <ComboBox x:Name="categoriesBox" DisplayMemberPath="CategoryName" SelectedValuePath="CategoryID" IsReadOnly="True" SelectedValue="5" Margin="10 3 0 0" Width="110"   Loaded="categoriesBox_Loaded"/>
                     <TextBlock 
                         Text="&lt;-- Släpp din bild här" VerticalAlignment="Bottom" Margin="0 20 0 0"/>
 

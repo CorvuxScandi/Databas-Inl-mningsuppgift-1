@@ -131,5 +131,11 @@ namespace ADOÖvningar
             };
             SearchSort.ItemsSource = sortings;
         }
+
+        private void btnSkip_Click(object sender, RoutedEventArgs e)
+        {
+            MakeNewAd newAd = new MakeNewAd();
+            newAd.Show();
+        }
     }
 }
