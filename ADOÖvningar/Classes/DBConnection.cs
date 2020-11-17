@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace ADOÖvningar.Classes
@@ -27,16 +23,16 @@ namespace ADOÖvningar.Classes
                 {
                     conn.Open();
                     cmd = new SqlCommand(command, conn);
-                    
+
                     cmd.Parameters.Add(param);
-                    
+
                     object returnvalue = cmd.ExecuteScalar();
 
                     if (returnvalue != null)
                     {
                         return returnvalue.ToString();
                     }
-                    
+
                 }
             }
             catch (Exception)
@@ -100,7 +96,7 @@ namespace ADOÖvningar.Classes
             }
 
             return table;
-        } // Delete later?
+        } 
 
         public static DataTable TableFromDataBase(string commandstring)
         {
@@ -119,7 +115,7 @@ namespace ADOÖvningar.Classes
 
                 return table;
             }
-            
+
         }
 
     }

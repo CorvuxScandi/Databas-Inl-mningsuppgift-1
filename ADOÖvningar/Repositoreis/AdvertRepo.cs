@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Data;
 
 namespace ADOÖvningar.Classes
 {
@@ -13,37 +9,48 @@ namespace ADOÖvningar.Classes
     {
         private static List<SqlParameter> parameters;
 
-
         public static DataTable GetAllAds()
         {
             return DBConnection.TableFromDataBase("GetAllAds");
         }
 
-
-
-        public static void NewAd(string title, string description, int typeID, string imagePath, int userID)
+        public static void NewAd(string title, string description, float price, int typeID, int userID) //string imagePath,
         {
-            parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@title", title));
-            parameters.Add(new SqlParameter("@description", description));
-            parameters.Add(new SqlParameter("@typeID", typeID));
-            parameters.Add(new SqlParameter("@imagePath", imagePath));
-            parameters.Add(new SqlParameter("@userID", userID));
+            parameters = new List<SqlParameter>
+            {
+                new SqlParameter("@title", title),
+                new SqlParameter("@description", description),
+                new SqlParameter("@CategoryID", typeID),
+                new SqlParameter("@userID", userID),
+                new SqlParameter("@dateAdded", DateTime.Now.ToShortDateString()),
+                new SqlParameter("@price", price)
+            };
 
-            DBConnection.ExecuteNonQuery("CreateNewAd", parameters);
+            DBConnection.ExecuteNonQuery("makeAd", parameters);
 
         }
 
         public static void DeleteAd(int adID)
         {
             parameters = new List<SqlParameter>();
-            parameters.Add(new SqlParameter("@AdvertID", adID));
+            parameters.Add(new SqlParameter("@AdID", adID));
 
-            DBConnection.ExecuteNonQuery("DeleteAD", parameters);
+            DBConnection.ExecuteNonQuery("RemoveAD", parameters);
 
         }
 
+        public static void EditAd(DataRow selectedRow, int user)
+        {
+            MakeNewAd edit = new MakeNewAd(
+                Convert.ToInt32(selectedRow["AdID"]),
+                selectedRow["AdTitel"].ToString(),
+                float.Parse(selectedRow["AdPrice"].ToString()),
+                selectedRow["AdDescription"].ToString(),
+                selectedRow["AdCategory"],
+                user);
 
+            edit.Show();
+        }
 
     }
 }

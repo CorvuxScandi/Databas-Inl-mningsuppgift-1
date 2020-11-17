@@ -1,17 +1,8 @@
 ﻿using ADOÖvningar.Classes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ADOÖvningar
 {
@@ -20,17 +11,54 @@ namespace ADOÖvningar
     /// </summary>
     public partial class MakeNewAd : Window
     {
-        public MakeNewAd()
+        private int AdID;
+        private int currentUserID;
+
+        public MakeNewAd(int userID)
         {
             InitializeComponent();
+            currentUserID = userID;
+            AdID = 0;
         }
-
-        private void categoriesBox_Loaded(object sender, RoutedEventArgs e)
+        public MakeNewAd(int adID, string AdTitel, float AdPrice, string AdDescription, object AdCategory, int user)
         {
-            categoriesBox.ItemsSource = CategoryRepo.GetAllCatagories().DefaultView;
+            InitializeComponent();
+            currentUserID = user;
+            txtNewTitle.Text = AdTitel;
+            txtPrice.Text = AdPrice.ToString();
+            txtNewAdText.Text = AdDescription;
+            cboCategoriesBox.SelectedItem = AdCategory;
+            AdID = adID;
         }
 
 
+        private void cboCategoriesBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            cboCategoriesBox.ItemsSource = CategoryRepo.GetAllCatagories().DefaultView;
+        }
+
+        private void btnCreateAd_Click(object sender, RoutedEventArgs e)
+        {
+            if (AdID == 0)
+            {
+                AdvertRepo.NewAd(txtNewTitle.Text, txtNewAdText.Text, float.Parse(txtPrice.Text),
+                Convert.ToInt32(cboCategoriesBox.SelectedValue), currentUserID);
+            }
+            else
+            {
+                AdvertRepo.DeleteAd(AdID);
+                AdvertRepo.NewAd(txtNewTitle.Text, txtNewAdText.Text, float.Parse(txtPrice.Text),
+                Convert.ToInt32(cboCategoriesBox.SelectedValue), currentUserID);
+            }
+            ((MainWindow)Application.Current.MainWindow).PopulateDataGrid();
+            this.Close();
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
 
     }
 }

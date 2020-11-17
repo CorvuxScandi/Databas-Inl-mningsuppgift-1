@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ADOÖvningar"
         mc:Ignorable="d"
-        Title="MakeNewAd" Height="592" Width="454" FontSize="14" WindowStartupLocation="CenterScreen">
+        Title="Skapa/Ändra Inlägg" Height="592" Width="454" FontSize="14" WindowStartupLocation="CenterScreen" >
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -24,29 +24,30 @@
 
         <DockPanel LastChildFill="True" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3">
             <TextBlock DockPanel.Dock="Top" Text="Titel" Margin="0 0 0 4" FontSize="20" FontWeight="Medium"/>
-            <TextBox x:Name="newTitle" DockPanel.Dock="Top"/>
+            <TextBox x:Name="txtNewTitle" DockPanel.Dock="Top"/>
 
             <StackPanel Margin="0 10 0 0" Orientation="Horizontal" DockPanel.Dock="Top">
-
-                <Border 
-                    Width="100" Height="100" BorderBrush="#FF3A3939" Background="Gainsboro" BorderThickness="1">
-                    <Image 
-                        x:Name="newImage" AllowDrop="True" HorizontalAlignment="Left"   Source="DragAndDrop.png" />
-                </Border>
-
-                <StackPanel Margin="10 0 0 0">
-                    <ComboBox x:Name="categoriesBox" DisplayMemberPath="CategoryName" SelectedValuePath="CategoryID" IsReadOnly="True" SelectedValue="5" Margin="10 3 0 0" Width="110"   Loaded="categoriesBox_Loaded"/>
-                    <TextBlock 
-                        Text="&lt;-- Släpp din bild här" VerticalAlignment="Bottom" Margin="0 20 0 0"/>
-
+                <StackPanel>
+                    <TextBlock Text="Kategori"/>
+                    <ComboBox x:Name="cboCategoriesBox" DisplayMemberPath="CategoryName"
+                    SelectedValuePath="CategoryID" IsReadOnly="True" SelectedValue="5" 
+                    Margin="0 3 10 0" Width="110"   Loaded="cboCategoriesBox_Loaded"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Pris"/>
+                    <TextBox x:Name="txtPrice" Width="100" PreviewTextInput="NumberValidationTextBox" Margin="0 3 10 0"/>
                 </StackPanel>
             </StackPanel>
             <TextBox 
-            x:Name="newAd" Grid.Row="2" Grid.RowSpan="2" FontSize="14" Grid.Column="1" 
+            x:Name="txtNewAdText" Grid.Row="2" Grid.RowSpan="2" FontSize="14" Grid.Column="1" 
             SpellCheck.IsEnabled="True" AllowDrop="False" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" DockPanel.Dock="Top" Margin="0 10 0 0"/>
         </DockPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1">
+            <Button x:Name="btnCreateAd" Content="Spara" Margin="10 5 0 0" Width="150" HorizontalAlignment="Left" IsDefault="True" Click="btnCreateAd_Click"/>
+            
+        </StackPanel>
 
-       
+
 
     </Grid>
 </Window>

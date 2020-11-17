@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ADOÖvningar.Classes
 {
@@ -38,13 +33,13 @@ namespace ADOÖvningar.Classes
         public static int UserLogin(string username, string password)
         {
             string[] dbValues = FindUser(username);
-            
-            if(dbValues[0] == username && dbValues[1] == password)
+
+            if (dbValues[0] == username && dbValues[1] == password)
             {
                 return int.Parse(dbValues[2]);
             }
 
-            return 0;    
+            return 0;
         }
 
     }
